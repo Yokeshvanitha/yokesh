@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h3,h4 {
+            color: #444444;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #444444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Heart Disease Prediction</h3>
+        <h4>Enter The Details</h4>
+        <form method="POST" action="/">
+            <input type="text" name="age" placeholder="Age" required>
+            <input type="text" name="sex" placeholder="Sex (0 = Female, 1 = Male)" required>
+            <input type="text" name="cp" placeholder="Chest Pain Type (0-3)" required>
+            <input type="text" name="trestbps" placeholder="Resting Blood Pressure" required>
+            <input type="text" name="chol" placeholder="Cholesterol Level" required>
+            <input type="text" name="fbs" placeholder="Fasting Blood Sugar (0 = No, 1 = Yes)" required>
+            <input type="text" name="restecg" placeholder="Resting ECG (0-2)" required>
+            <input type="text" name="thalach" placeholder="Max Heart Rate" required>
+            <input type="text" name="exang" placeholder="Exercise Induced Angina (0 = No, 1 = Yes)" required>
+            <input type="text" name="oldpeak" placeholder="ST Depression" required>
+            <input type="text" name="slope" placeholder="Slope of Peak (0-2)" required>
+            <button type="submit">Predict</button>
+        </form>
+        
+        <!-- Display the result -->
+        {% if result %}
+        <div class="result">
+            <strong>Prediction Result:</strong> {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
